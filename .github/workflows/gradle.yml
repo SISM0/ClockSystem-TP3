@@ -35,6 +35,10 @@ jobs:
     - name: Build with Gradle
       run: gradle build
 
-    # Run tests in headless mode to avoid GUI-related errors
-    - name: Run tests in headless mode
-      run: gradle test -Djava.awt.headless=true
+    # Ensure Java runs in headless mode globally
+    - name: Set environment variable for headless mode
+      run: echo "JAVA_TOOL_OPTIONS=-Djava.awt.headless=true" >> $GITHUB_ENV
+
+    # Run tests
+    - name: Run tests
+      run: gradle test
