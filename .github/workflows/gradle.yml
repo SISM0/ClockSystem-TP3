@@ -11,7 +11,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -25,21 +24,25 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
 
-    # Configure Gradle with version 8.9
     - name: Setup Gradle 8.10
       uses: gradle/actions/setup-gradle@v3
       with:
         gradle-version: '8.10'
 
-    # Run Gradle without the Wrapper
     - name: Build with Gradle
       run: gradle build
 
-    # Ensure Java runs in headless mode globally
-    - name: Set environment variable for headless mode
-      run: echo "JAVA_TOOL_OPTIONS=-Djava.awt.headless=true" >> $GITHUB_ENV
+    env:
+      DISPLAY: ":99.0"
 
-    # Run tests
+    services:
+      xvfb:
+        image: selenium/standalone-chrome:latest
+        options: -e VNC_SERVER=true -e VNC_PORT=5900
+
+    - name: Start Xvfb
+      run: Xvfb $DISPLAY -ac -screen 0 1600x1200x24 > /dev/null 2>&1 &
+
     - name: Run tests
       run: gradle test
 
@@ -48,3 +51,22 @@ jobs:
       with:
         name: test-report
         path: app/build/reports/tests/test
+
+  pmd_analysis:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up JDK 21
+      uses: actions/setup-java@v4
+      with:
+        java-version: '21'
+        distribution: 'temurin'
+
+    - name: PMD Static Code Analysis
+      uses: pmd/pmd-github-action@v2.0.0
+      with:
+        rulesets: 'java-basic'
