@@ -26,10 +26,10 @@ jobs:
         distribution: 'temurin'
 
     # Configure Gradle with version 8.9
-    - name: Setup Gradle 8.9
+    - name: Setup Gradle 8.10
       uses: gradle/actions/setup-gradle@v3
       with:
-        gradle-version: '8.9'
+        gradle-version: '8.10'
 
     # Run Gradle without the Wrapper
     - name: Build with Gradle
