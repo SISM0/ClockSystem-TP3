@@ -63,4 +63,4 @@ jobs:
       - name: PMD Static Code Analysis
         uses: pmd/pmd-github-action@v2.0.0
         with:
-          rulesets: "pmd-rulesets/java-basic.xml"
+          rulesets: 'java-basic'
