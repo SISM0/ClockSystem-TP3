@@ -47,11 +47,11 @@ jobs:
     # - name: Build with Gradle 8.9
     #   run: gradle build
 
-  dependency-submission:
-
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
+  #dependency-submission:
+  #
+   # runs-on: ubuntu-latest
+    #permissions:
+     # contents: write
 
     steps:
     - uses: actions/checkout@v4
