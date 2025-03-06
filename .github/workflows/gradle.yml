@@ -25,12 +25,16 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
 
-    # Configure Gradle with version 8.10
-    - name: Setup Gradle 8.10
+    # Configure Gradle with version 8.9
+    - name: Setup Gradle 8.9
       uses: gradle/actions/setup-gradle@v3
       with:
-        gradle-version: '8.10'
+        gradle-version: '8.9'
 
     # Run Gradle without the Wrapper
     - name: Build with Gradle
       run: gradle build
+
+    # Run tests in headless mode to avoid GUI-related errors
+    - name: Run tests in headless mode
+      run: gradle test -Djava.awt.headless=true
