@@ -1,5 +1,6 @@
 ![Build Status](https://github.com/SISM0/ClockSystem-TP3/actions/workflows/gradle.yml/badge.svg)
 ![PMD Workflow Status](https://github.com/SISM0/ClockSystem-TP3/actions/workflows/gradle.yml/badge.svg)
+![CodeQL Analysis](https://github.com/SISM0/ClockSystem-TP3/actions/workflows/codeql.yml/badge.svg)
 
 
 # ClockSystem
