@@ -1,7 +1,7 @@
 ![Build Status](https://github.com/SISM0/ClockSystem-TP3/actions/workflows/gradle.yml/badge.svg)
 ![PMD Workflow Status](https://github.com/SISM0/ClockSystem-TP3/actions/workflows/gradle.yml/badge.svg)
 ![CodeQL Analysis](https://github.com/SISM0/ClockSystem-TP3/actions/workflows/codeql.yml/badge.svg)
-![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/SISM0/ClockSystem-TP3/badge)
+![OpenSSF Scorecard](https://github.com/SISM0/ClockSystem-TP3/actions/workflows/scorecard.yml/badge.svg)
 
 
 # ClockSystem
