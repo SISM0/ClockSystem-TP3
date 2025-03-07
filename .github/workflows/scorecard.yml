@@ -1,0 +1,23 @@
+name: OpenSSF Scorecard
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  scorecard:
+    name: Run OpenSSF Scorecard
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code  # Étape ajoutée pour récupérer le code du projet
+        uses: actions/checkout@v4
+
+      - name: Run OpenSSF Scorecard
+        uses: ossf/scorecard-action@v2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
